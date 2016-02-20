@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Whitebox</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="octicons/octicons.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="logo">
+        <img src="logo.png" width=50 />
+        <h1>box</h1>
+    </div>
+    <div id="game-levels">
+    </div>
+    <div style="clear: both;"></div>
+    <div id="game-area">
+        <canvas id="game-canvas" width=800 height=600>
+        </canvas>
+        <div id="maker-menu">
+            <button type="button" name="button" id="play-button">TEST</button>
+            <button type="button" name="button" id="save-button">SAVE</button>
+            <br>
+            <button type="button" name="button" id="wall-button">WALL</button>
+            <button type="button" name="button" id="v-window-button">V-WINDOW</button>
+            <button type="button" name="button" id="h-window-button">H-WINDOW</button>
+            <button type="button" name="button" id="player-button">PLAYER</button>
+            <button type="button" name="button" id="platform-button">PLATFORM</button>
+            <button type="button" name="button" id="mine-button">MINE</button>
+            <button type="button" name="button" id="square-button">SQUARE</button>
+            <button type="button" name="button" id="door-button">DOOR</button>
+            <button type="button" name="button" id="portal-button">PORTAL</button>
+            <button type="button" name="button" id="lightsource-button">LIGHT SOURCE</button>
+            <button type="button" name="button" id="lightreceiver-button">LIGHT RECEIVER</button>
+            <button type="button" name="button" id="lightconnector-button">LIGHT CONNECTOR</button>
+            <button type="button" name="button" id="box-button">BOX</button>
+        </div>
+    </div>
+    <div id="game-menu">
+        <span id="sound-button" class="mega-octicon octicon-unmute"></span>
+        <span class="mega-octicon octicon-three-bars"></span>
+        <span class="mega-octicon octicon-pencil"></span>
+        <span class="mega-octicon octicon-info"></span>
+    </div>
+    <div id="overlay">
+        <div id="container">
+            <div id="help-container">
+                <h1>Game Controls</h1>
+                <p>W, A, S, D - movement</p>
+                <p>E - grab</p>
+                <p>Mouse click - connect light source (circle in a square) to light connector (smaller circle) to light platform (larger circle) or other light connectors.</p>
+                <h1>Game Mechanics</h1>
+                <p>The goal of the game is to grab the box. The box is usually behind an obstacle of some sort. To reach it you must open doors or teleport to otherwise inaccessible locations. Platforms and light receivers control doors and portals. They are activated by an object standing on top of them or by a laser beam. Some levels will also have patrolling mines which you must avoid.</p>
+                <h1>Editor Menu</h1>
+                <p>Clicking the pencil icon takes you to the editor menu. You can use this to design your own levels. Hitting save will generate a json representation of the level which you must then copy to the levels.ts file to make the level available in game.</p>
+                <p>Feel free to submit your level via a github pull request.</p>
+                <p>Clicking on an object will highlight other objects on the map which you can link it to.</p>
+                <p>A platform or a light source can be linked to a portal or a door.</p>
+                <p>Clicking on a mine and then on another location on the map will construct a patrol path for that mine. Hit that same spot again to remove the path, or click a different spot to change the path.</p>
+                <p>To remove an object, click it, then hit delete.</p>
+                <p>To test the level hit test and begin playing. You can also kinda play the level as you're making it but hitting test before doing that saves a snapshot of your level which is then restored when you're done playtesting. Hitting test also hides other editor selection options which are unavailable in live games. It also turns on the mines.</p>
+                <p>Note that in edit mode you do not get feedback on game ending events (e.g. hitting a mine won't play any sound and won't end the game).</p>
+            </div>
+            <div id="json-container">
+                <p>Copy this json to the levels.ts file</p>
+                <textarea onClick="this.select();" id="json-message"></textarea>
+            </div>
+            <span id="close-container" class="mega-octicon octicon-x"></span>
+        </div>
+    </div>
+    <script src="lib/howler.min.js"></script>
+    <script src="lib/script.js"></script>
+</body>
+
+</html>

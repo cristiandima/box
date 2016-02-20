@@ -1,0 +1,114 @@
+body {
+    font-family: "Roboto", "Arial", sans-serif;
+}
+
+#logo {
+    display: table;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#logo img {
+    display: table-cell;
+    width: 60px;
+}
+
+#logo h1 {
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 10px;
+    font-size: 40px;
+}
+
+#game-levels,
+#game-area {
+    width: 800px;
+    margin: 0 auto;
+    display: none;
+}
+
+.level,
+.dummy-level {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    float: left;
+    margin: 10px;
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+}
+
+.level.completed {
+    background-color: #6EDC2A;
+}
+
+.level:hover {
+    cursor: pointer;
+}
+
+#game-menu {
+    width: 208px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.mega-octicon {
+    margin: 10px;
+}
+
+.mega-octicon:hover {
+    cursor: pointer;
+}
+
+#maker-menu {
+    display: none;
+}
+
+#maker-menu button {
+    padding: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+#container {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    margin-left: -265px;
+    width: 480px;
+    height: 600px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 4px;
+    color: #000;
+    overflow-y: auto;
+    display: none;
+}
+
+#container .octicon-x {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+#help-container,
+#json-container {
+    display: none;
+}
+
+#json-message {
+    width: 100%;
+    height: 400px;
+}

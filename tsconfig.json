@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "out": "../lib/script.js"
+    },
+    "files": [
+        "src/levels.ts",
+        "src/dataStructures.ts",
+        "src/keycodes.ts",
+        "src/geometry.ts",
+        "src/serialization.ts",
+        "src/globals.ts",
+        "src/light.ts",
+        "src/gameObjects.ts",
+        "src/gameGrid.ts",
+        "src/makerMenu.ts",
+        "src/game.ts"
+    ]
+}
