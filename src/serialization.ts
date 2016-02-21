@@ -74,7 +74,6 @@ function objToClassName(obj) {
 }
 
 function nameToGameObject(name: String, grid: GameGrid) {
-    console.log(name);
     switch (name) {
         case "Wall":
             return new Wall(grid);

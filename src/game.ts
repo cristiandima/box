@@ -38,7 +38,6 @@ function getEditorClickHandler() {
     let makerMenu = new MakerMenu("maker-menu");
 
     return function(event: MouseEvent) {
-        //console.log(g.getSelected());
         let pos = GAME.getPosition(event);
         let clicked = GAME.getObjectsAt(pos)[0];
 
@@ -118,7 +117,6 @@ function makeLink(from: GameObject, target: GameObject) {
 
 function highlightLinks(obj: GameObject) {
     if (isLock(obj)) {
-        console.log(obj, "WAT");
         let all = GAME.allObjects();
         obj.highlightLevel = Highlight.Basic;
         for (let item of all) {
@@ -214,7 +212,6 @@ document.addEventListener("keydown", function(event: KeyboardEvent) {
             player.grab();
         }
         GAME.update();
-        //g.render();
     }
     if (event.keyCode == KeyCodes.Esc) {
         GAME.unselectAll();
