@@ -10,7 +10,8 @@ enum BodyType {
 enum Highlight {
     None,
     Basic,
-    Linked
+    Linked,
+    Selected
 }
 
 interface Lockable {
@@ -90,9 +91,15 @@ abstract class GameObject implements Hashable {
         CTX.beginPath();
         CTX.save();
         CTX.rect(x, y, this.grid.size * 1.1, this.grid.size * 1.1);
-        CTX.strokeStyle = this.highlightLevel === Highlight.Basic
-            ? scheme.colorFor("HighlightBasic")
-            : scheme.colorFor("HighlightLinked");
+        let color;
+        if (this.highlightLevel === Highlight.Basic) {
+            color = scheme.colorFor("HighlightBasic");
+        } else if (this.highlightLevel === Highlight.Linked) {
+            color = scheme.colorFor("HighlightLinked");
+        } else if (this.highlightLevel === Highlight.Selected) {
+            color = scheme.colorFor("HighlightSelected");
+        }
+        CTX.strokeStyle = color;
         CTX.lineWidth = 3;
         CTX.stroke();
         CTX.restore();

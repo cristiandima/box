@@ -22,7 +22,8 @@ class ColorScheme {
         "LightOn": "#105B63",
         "LightOff": "#6B6B6B",
         "HighlightBasic": "#1E1E20",
-        "HighlightLinked": "#FF6138"
+        "HighlightLinked": "#FF6138",
+        "HighlightSelected": "#8A0917"
     }
 
     constructor(colorMap?: { [key: string]: string; }) {

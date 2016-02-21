@@ -60,7 +60,6 @@ function getEditorClickHandler() {
                 return;
             }
             if (lastClicked === undefined) {
-                clicked.highlightLevel = Highlight.Basic;
                 highlightLinks(clicked);
                 return;
             }
@@ -118,7 +117,6 @@ function makeLink(from: GameObject, target: GameObject) {
 function highlightLinks(obj: GameObject) {
     if (isLock(obj)) {
         let all = GAME.allObjects();
-        obj.highlightLevel = Highlight.Basic;
         for (let item of all) {
             if (isLockable(item)) {
                 if (item.lockedBy(obj)) {
@@ -143,12 +141,16 @@ function highlightLinks(obj: GameObject) {
         }
     }
     if (obj instanceof LightConnector) {
+        obj.highlightLevel = Highlight.Selected;
         let all = GAME.allObjects();
         for (let item of all) {
             if (isLight(item)) {
                 if (GAME.lg.graph.links(item).indexOf(obj) !== -1) {
                     item.highlightLevel = Highlight.Linked;
                 } else {
+                    if (item === obj) {
+                        continue;
+                    }
                     item.highlightLevel = Highlight.Basic;
                 }
             }
