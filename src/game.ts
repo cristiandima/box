@@ -115,6 +115,7 @@ function makeLink(from: GameObject, target: GameObject) {
 }
 
 function highlightLinks(obj: GameObject) {
+    obj.highlightLevel = Highlight.Basic;
     if (isLock(obj)) {
         let all = GAME.allObjects();
         for (let item of all) {
