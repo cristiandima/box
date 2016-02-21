@@ -320,6 +320,10 @@ class LightSource extends GameObject implements Light {
         return BodyType.Solid;
     }
 
+    renderPriority() {
+        return -20;
+    }
+
     render(scheme: ColorScheme) {
         this.highlight(scheme);
         let cornerX = this.location().x * this.grid.size;
@@ -358,6 +362,10 @@ class LightReceiver extends GameObject implements Lock, Light {
         return BodyType.Solid;
     }
 
+    renderPriority() {
+        return -20;
+    }
+
     render(scheme: ColorScheme) {
         this.highlight(scheme);
         let x = this.location().x * this.grid.size + this.grid.size * 0.5;
@@ -387,6 +395,10 @@ class LightConnector extends GameObject implements Light {
 
     bodyType() {
         return BodyType.Transparent;
+    }
+
+    renderPriority() {
+        return -20;
     }
 
     render(scheme: ColorScheme) {
