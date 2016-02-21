@@ -5,7 +5,7 @@ GAME.render();
 function getGameClickHandler() {
     return function(event: MouseEvent) {
         let pos = GAME.getPosition(event);
-        let clicked = GAME.getObjectsAt(pos)[0];
+        let clicked = GAME.getObjectsAt(pos).filter(isLight)[0];
 
         // clicked on existing object
         if (clicked !== undefined) {
