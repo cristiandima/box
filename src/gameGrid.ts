@@ -243,22 +243,24 @@ class GameGrid {
             CTX.beginPath();
             CTX.save();
             CTX.fillStyle = this.scheme.colorFor("Background");
-            let msg, shift, hShift;
+            let msg, shift, hShift, helpMsg;
             if (this.gameState === GameState.Completed) {
                 msg = "LEVEL COMPLETE";
                 shift = 150;
                 hShift = 135;
+                helpMsg = "hit space to go back to the menu";
             } else {
                 msg = "GAME OVER";
                 shift = 100;
                 hShift = 135;
+                helpMsg = "hit space to retry the same level";
             }
             let textX = CANVAS.width / 2 - shift;
             let textY = CANVAS.height / 2;
             CTX.font = "bold 40px Roboto"
             CTX.fillText(msg, textX, textY);
 
-            let helpMsg = "hit space to go back to the menu";
+
             let x = CANVAS.width / 2 - hShift;
             let y = CANVAS.height / 2 + 25;
             CTX.font = "20px Roboto"

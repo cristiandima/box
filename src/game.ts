@@ -194,12 +194,19 @@ saveButton.addEventListener("click", function() {
 
 document.addEventListener("keydown", function(event: KeyboardEvent) {
     let gs = GAME.gameState;
-    if (gs === GameState.Completed || gs === GameState.Over) {
-        if (event.keyCode === KeyCodes.Space) {
+    if (event.keyCode === KeyCodes.Space) {
+        if (gs === GameState.Completed) {
             showMenu();
+            return;
         }
-        return;
+        if (gs === GameState.Over) {
+            GAME.clear();
+            deserialize(LEVELS[LEVELID], GAME);
+            showGame();
+            return;
+        }
     }
+
     let player = GAME.getPlayer();
     if (player !== undefined) {
         let loc = player.location();
