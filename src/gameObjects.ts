@@ -719,13 +719,13 @@ class Mine extends GameObject {
         this.curPos += this.direction;
         let next_pos = this.path[this.curPos];
         let targets = this.grid.getObjectsAt(next_pos);
-        if (targets.length > 0) {
+        if (!this.canWalkThrough(targets)) {
             this.direction = -this.direction;
             this.curPos += this.direction * 2;
             next_pos = this.path[this.curPos];
             if (next_pos !== undefined) {
                 targets = this.grid.getObjectsAt(next_pos);
-                if (targets.length > 0) {
+                if (!this.canWalkThrough(targets)) {
                     this.curPos += -this.direction;
                     next_pos = this.location();
                 }
@@ -734,5 +734,15 @@ class Mine extends GameObject {
             }
         }
         this.grid.move(this, next_pos);
+    }
+
+    private canWalkThrough(objects: Array<GameObject>) {
+        if (objects.length === 0) {
+            return true;
+        }
+        if (objects.every(o => o.bodyType() === BodyType.Invisible)) {
+            return true;
+        }
+        return false;
     }
 }
