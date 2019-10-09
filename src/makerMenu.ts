@@ -27,8 +27,8 @@ class MakerMenu {
             let button = <HTMLElement>document.getElementById(key);
             button.addEventListener("click", (event: MouseEvent) => {
                 for (let key in this.gameObjects) {
-                    if (key == event.srcElement.id) {
-                        let h = <HTMLElement>event.srcElement;
+                    if (key == (<HTMLElement>event.target).id) {
+                        let h = <HTMLElement>event.target;
                         if (this.gameObjects[key]) {
                             h.style.backgroundColor = "";
                         } else {

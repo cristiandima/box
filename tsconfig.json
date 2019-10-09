@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "es5",
-        "out": "../lib/script.js"
+        "out": "lib/script.js"
     },
     "files": [
         "src/levels.ts",

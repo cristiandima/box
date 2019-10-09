@@ -321,12 +321,12 @@ helpButton.addEventListener("click", function() {
 let muteButton = document.getElementById("sound-button");
 muteButton.addEventListener("click", function(e: MouseEvent) {
     if (Howler.volume() === 0) {
-        e.srcElement.classList.remove("octicon-mute");
-        e.srcElement.classList.add("octicon-unmute");
+        (<HTMLButtonElement>e.target).classList.remove("octicon-mute");
+        (<HTMLButtonElement>e.target).classList.add("octicon-unmute");
         Howler.unmute();
     } else {
-        e.srcElement.classList.remove("octicon-unmute");
-        e.srcElement.classList.add("octicon-mute");
+        (<HTMLButtonElement>e.target).classList.remove("octicon-unmute");
+        (<HTMLButtonElement>e.target).classList.add("octicon-mute");
         Howler.mute();
     }
 })
